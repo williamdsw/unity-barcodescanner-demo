@@ -24,6 +24,7 @@ public class DemoScene : MonoBehaviour
     [SerializeField] private Toggle parserTryHarderToggle;
     [SerializeField] private Toggle autoFocusSupportedToggle;
     [SerializeField] private TMP_Dropdown webcamFilterModeDropdown;
+    [SerializeField] private Toggle applySettingsToggle;
 
     [Header("UI - Auto Toggle Point Elements")]
     [SerializeField] private GameObject container;
@@ -247,6 +248,7 @@ public class DemoScene : MonoBehaviour
         ParamatersManager.Instance.DecodeInterval = float.Parse(decodeIntervalInput.text, CultureInfo.InvariantCulture);
         ParamatersManager.Instance.ParserTryHarder = parserTryHarderToggle.isOn;
         ParamatersManager.Instance.WebcamFilterMode = webcamFilterModeDropdown.value;
+        ParamatersManager.Instance.ApplyParamaters = applySettingsToggle.isOn;
 
         SceneManager.LoadScene("ScannerScene");
     }

@@ -70,7 +70,16 @@ public class ScannerScene : MonoBehaviour
 
     private void InitScannerSettings()
     {
-        scanner = new Scanner(ScannerSettingsBuilder.Build());
+        if (ParamatersManager.Instance.ApplyParamaters)
+        {
+            scanner = new Scanner(ScannerSettingsBuilder.Build());
+        }
+        else
+        {
+            scanner = new Scanner();
+        }
+
+
         scanner.Camera.Play();
 
         scanner.OnReady += (sender, arg) =>

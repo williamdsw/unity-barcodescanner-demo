@@ -45,6 +45,8 @@ public class ScannerSettingsBuilder
         {
             Debug.LogErrorFormat("ScannerSettingsBuilder : Exception = {0}", ex.Message);
         }
+        
+        Debug.Log("Scanner Settings Applied!");
 
         return settings;
     }

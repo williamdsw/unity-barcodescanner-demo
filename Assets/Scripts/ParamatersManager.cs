@@ -12,6 +12,7 @@ public class ParamatersManager : MonoBehaviour
     public float? RequestedFPS { get; set; }
     public int VSyncCount { get; set; }
     public int QualitySettingsLevel { get; set; }
+    public bool ApplyParamaters { get; set; }
 
     // Scanner
     public int DelayFrameMin { get; set; }
@@ -53,7 +54,7 @@ public class ParamatersManager : MonoBehaviour
         DelayFrameMin = 3;
         DecodeInterval = 0.1f;
         ParserTryHarder = false;
-        WebcamFilterMode = (int) FilterMode.Trilinear;
+        WebcamFilterMode = (int)FilterMode.Trilinear;
         WebcamAutoFocusPoint = null;
     }
 }
