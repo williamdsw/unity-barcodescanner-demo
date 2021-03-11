@@ -19,6 +19,7 @@ public class ScannerScene : MonoBehaviour
     [SerializeField] private Button backButton;
     [SerializeField] private TextMeshProUGUI statusText;
     [SerializeField] private TextMeshProUGUI currentResolutionText;
+    [SerializeField] private GameObject scannerPanel;
 
     [Header("UI Elements - QrCode Panel")]
     [SerializeField] private GameObject qrCodePanel;
@@ -79,7 +80,6 @@ public class ScannerScene : MonoBehaviour
             scanner = new Scanner();
         }
 
-
         scanner.Camera.Play();
 
         scanner.OnReady += (sender, arg) =>
@@ -103,10 +103,12 @@ public class ScannerScene : MonoBehaviour
     {
         if (scanner != null)
         {
+            scannerPanel.SetActive(true);
             scanner.Scan((barCodeType, barCodeValue) =>
             {
                 scanner.Stop();
 
+                scannerPanel.SetActive(false);
                 qrCodePanel.SetActive(true);
                 qrCodeText.text = string.Format("Found: {0} / {1}", barCodeType, barCodeValue);
 
@@ -121,6 +123,7 @@ public class ScannerScene : MonoBehaviour
     {
         if (scanner != null)
         {
+            scannerPanel.SetActive(false);
             scanner.Stop();
         }
     }

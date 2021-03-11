@@ -32,6 +32,7 @@ public class DemoScene : MonoBehaviour
     [SerializeField] private TMP_InputField yInput;
 
     [Header("UI Others")]
+    [SerializeField] private Button quitButton;
     [SerializeField] private Button openScannerButton;
 
     [Header("UI - Error Panel")]
@@ -154,6 +155,7 @@ public class DemoScene : MonoBehaviour
 
         tryAgainButton.onClick.AddListener(() => CheckDevices(true));
         openScannerButton.onClick.AddListener(() => SaveParameters());
+        quitButton.onClick.AddListener(() => Application.Quit());
     }
 
     private void ClearFields()
